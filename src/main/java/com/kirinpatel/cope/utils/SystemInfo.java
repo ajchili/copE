@@ -1,5 +1,7 @@
 package com.kirinpatel.cope.utils;
 
+import javax.swing.*;
+import java.awt.*;
 import java.io.File;
 import java.util.ArrayList;
 
@@ -17,6 +19,16 @@ public class SystemInfo {
     }
 
     public static boolean canTransfer(File drive, File copyLocation) {
-        return copyLocation.getFreeSpace() >= drive.getTotalSpace() - drive.getFreeSpace();
+        return drive != null
+                && copyLocation != null
+                && copyLocation.getFreeSpace() > (drive.getTotalSpace() - drive.getFreeSpace());
+    }
+
+    public static File setCopyLocation(Component parent) {
+        JFileChooser fileSelector = new JFileChooser();
+        fileSelector.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        fileSelector.showOpenDialog(parent);
+
+        return fileSelector.getSelectedFile();
     }
 }

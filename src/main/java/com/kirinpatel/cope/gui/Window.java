@@ -9,7 +9,7 @@ public class Window extends JFrame {
 
     private Window() {
         super("copE");
-        setSize(new Dimension(250, 175));
+        setSize(new Dimension(250, 200));
         setResizable(false);
         setLayout(new GridLayout(2, 1));
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
